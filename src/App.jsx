@@ -5,13 +5,6 @@ import axios from "axios";
 import './App.css'
 
 function App() {
-  // const getCustomersData = () => {
-  //   axios
-  //       .get("http://192.168.8.158:8080/information?city=Maputo")
-  //       .then(data => console.log(data.data))
-  //       .catch(error => console.log(error));
-  // };
-  // getCustomersData();
 
   const [city, setCity] = useState("")
   const [data, setData] = useState([])
@@ -44,6 +37,14 @@ function App() {
              />
           </label>
           <button onClick={handlePost}>Submit</button>
+          {data != null ?
+              <div>
+                    <p>Cidade: {city}</p>
+                    <p>Temperatura: </p> <p>{data["weather"]}</p>
+                    <p>Populacao: </p> <p>{data["currentPopulation"]}</p>
+                    <p>Pib: </p> <p>{data["gdp"]}</p>
+              </div> : ""
+          }
       </div>
     </>
   )
